@@ -36,13 +36,13 @@ module.exports = db.sequelize.define(
         created: {
             type: Sequelize.DATE,
             defaultValue: Sequelize.NOW
-        },
-        rendez_vous: {
-            type: Sequelize.STRING
-        },
-        soins_particuliers: {
-            type: Sequelize.STRING
         }
+        // rendez_vous: {
+        //     type: Sequelize.STRING
+        // },
+        // soins_particuliers: {
+        //     type: Sequelize.STRING
+        // }
     },
     {
         timestamps: false
