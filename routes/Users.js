@@ -80,15 +80,19 @@ users.put('/update', (req, res)=>{
   const email = req.body.email;
   User.update(userData, 
            { where: {email: email} }
-           ).then(() => {
-             res.status(200).json({msg:"updated successfully  "});
-           });  
+           ).then((email) => {
+             if(email){
+              res.status(200).json({msg:"updated successfully"});
+             }
+             else if (!email){
+               res.send('Email not found')
+             }
+           })
+           .catch(err => {
+            res.send('error: ' + err)
+          })       
 })
-
-
-
-
-
+ 
 
 users.post('/login', (req, res) => {
   User.findOne({
