@@ -3,7 +3,8 @@ const bodyParser = require('body-parser');
 const express = require('express')
 const app = express();
 const Users = require("./routes/Users");
-const db = require('./database/db')
+const Admin = require('./routes/Admin');
+const db = require('./database/db');
 
 
 console.log({env: process.env.CLEARDB_DATABASE_URL});
@@ -31,6 +32,10 @@ app.use(bodyParser.urlencoded
 );
 
 app.use("/users", Users)
+
+app.use("/admin", Admin)
+
+
 
 
 module.exports = app; 
