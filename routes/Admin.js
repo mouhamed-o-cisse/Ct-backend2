@@ -24,6 +24,7 @@ router.get('/get-all', (req, res, next)=>{
  });
 
 
+
 router.post('/login', (req, res) => {
     Admin.findOne({
       where: {

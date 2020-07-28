@@ -21,6 +21,29 @@ users.get('/get-all', (req, res, next)=>{
       })     
  });
 
+
+ users.get('/get-one', (req, res, next)=>{
+   
+  User.findOne({
+    where: {
+      email: req.body.email
+    }
+  })
+  .then(user => {
+      if (user) {
+        res.json(user)
+      } 
+      else{
+        res.json({ error: 'User do not exists' })
+      }
+    })
+
+    .catch(err => {
+      res.send('error: ' + err)
+    })     
+});
+
+
 users.post('/register', (req, res) => {
   const today = new Date()
   const userData = {
