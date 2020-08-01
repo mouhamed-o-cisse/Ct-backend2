@@ -10,7 +10,11 @@ process.env.SECRET_KEY = 'secret'
 
 users.get('/get-all', (req, res, next)=>{
    
-    User.findAll()
+    User.findAll({
+      order: [
+        ['id', 'DESC'], // Sorts by COLUMN_NAME_EXAMPLE in ascending order
+  ],
+    })
     .then(users => {
         if (users) {
           res.json(users)
