@@ -91,6 +91,7 @@ users.post('/register', (req, res) => {
 
 users.put('/update', (req, res)=>{
   // let user = req.body;
+  const now = new Date()
   const userData = {
     email: req.body.email,
     antecedents_personnels: req.body.antecedents_personnels,
@@ -101,7 +102,8 @@ users.put('/update', (req, res)=>{
     traitement_recu: req.body.traitement_recu,
     ordonnance: req.body.ordonnance,
     evolution: req.body.evolution,
-    pro_rdv: req.body.pro_rdv
+    pro_rdv: req.body.pro_rdv,
+    last_update: now
   }
   const email = req.body.email;
   User.update(userData, 

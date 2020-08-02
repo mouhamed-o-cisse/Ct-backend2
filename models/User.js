@@ -63,6 +63,10 @@ module.exports = db.sequelize.define(
         },
         pro_rdv: {
             type: Sequelize.STRING
+        },
+        last_update: {
+            type: Sequelize.DATE,
+            defaultValue: Sequelize.NOW
         }
         // rendez_vous: {
         //     type: Sequelize.STRING
