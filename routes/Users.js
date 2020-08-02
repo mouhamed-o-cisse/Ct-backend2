@@ -12,7 +12,7 @@ users.get('/get-all', (req, res, next)=>{
    
     User.findAll({
       order: [
-        ['id', 'DESC'], // Sorts by COLUMN_NAME_EXAMPLE in ascending order
+        ['id', 'DESC'], // Sorts by COLUMN_NAME_EXAMPLE in descending order
   ],
     })
     .then(users => {
@@ -92,17 +92,16 @@ users.post('/register', (req, res) => {
 users.put('/update', (req, res)=>{
   // let user = req.body;
   const userData = {
-    id: req.body.id,
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
     email: req.body.email,
-    password: req.body.password,
-    phone_number: req.body.phone_number,
-    age: req.body.age,
-    pdesease: req.body.pdesease,
-    allergy: req.body.allergy,
-    rendez_vous: req.body.rendez_vous,
-    soins_particuliers: req.body.soins_particuliers
+    antecedents_personnels: req.body.antecedents_personnels,
+    antecedents_familiaux: req.body.antecedents_familiaux,
+    motif_de_consultation: req.body.motif_de_consultation,
+    bilan: req.body.bilan,
+    diagnostic: req.body.diagnostic,
+    traitement_recu: req.body.traitement_recu,
+    ordonnance: req.body.ordonnance,
+    evolution: req.body.evolution,
+    pro_rdv: req.body.pro_rdv
   }
   const email = req.body.email;
   User.update(userData, 

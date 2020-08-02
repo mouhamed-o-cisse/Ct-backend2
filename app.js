@@ -4,6 +4,7 @@ const express = require('express')
 const app = express();
 const Users = require("./routes/Users");
 const Admin = require('./routes/Admin');
+const Rdvs = require('./routes/Rdvs')
 const db = require('./database/db');
 
 
@@ -35,7 +36,7 @@ app.use("/users", Users)
 
 app.use("/admin", Admin)
 
-
+app.use("/rdvs", Rdvs)
 
 
 module.exports = app; 
