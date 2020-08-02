@@ -105,12 +105,16 @@ users.put('/update', (req, res)=>{
   }
   const email = req.body.email;
   User.update(userData, 
-           { where: {email: email} }
+           { 
+             where: {
+               email: email
+              } 
+            }
            ).then((email) => {
              if(email){
-              res.status(200).json({msg:"updated successfully"});
+              res.status(200).json({msg:"updated succesfully"});
              }
-             else if (!email){
+             else {
                res.send('Email not found')
              }
            })

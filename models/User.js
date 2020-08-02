@@ -36,6 +36,33 @@ module.exports = db.sequelize.define(
         created: {
             type: Sequelize.DATE,
             defaultValue: Sequelize.NOW
+        },
+        antecedents_personnels: {
+            type: Sequelize.STRING
+        },
+        antecedents_familiaux: {
+            type: Sequelize.STRING
+        },
+        motif_de_consultation: {
+            type: Sequelize.STRING
+        },
+        bilan: {
+            type: Sequelize.STRING
+        },
+        diagnostic: {
+            type: Sequelize.STRING
+        },
+        traitement_recu: {
+            type: Sequelize.STRING
+        },
+        ordonnance: {
+            type: Sequelize.STRING
+        },
+        evolution: {
+            type: Sequelize.STRING
+        },
+        pro_rdv: {
+            type: Sequelize.STRING
         }
         // rendez_vous: {
         //     type: Sequelize.STRING
