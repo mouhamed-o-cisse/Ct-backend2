@@ -25,12 +25,25 @@ users.get('/get-all', (req, res, next)=>{
       })     
  });
 
+ // Find a Customer by Id
+//  users.get('/get-one', (req, res) => {  
+//   // User.findById(req.params.id)
+//   User.findOne({
+//         where: {
+//           id: req.body.id
+//         }
+//       })
+//   .then(user => {
+//     res.json(user);
+//   })
+//  }) 
+
 
  users.get('/get-one', (req, res, next)=>{
    
   User.findOne({
     where: {
-      email: req.body.email
+      id: req.body.id
     }
   })
   .then(user => {
@@ -169,5 +182,25 @@ users.get('/profile', (req, res) => {
       res.send('error: ' + err)
     })
 })
+
+// users.get('/oneprofile', (req, res) => {
+//   var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+
+//   User.findOne({
+//     where: {
+//       id: decoded.id
+//     }
+//   })
+//     .then(user => {
+//       if (user) {
+//         res.json(user)
+//       } else { 
+//         res.send('User does not exist')
+//       }
+//     })
+//     .catch(err => {
+//       res.send('error: ' + err)
+//     })
+// })
 
 module.exports = users
