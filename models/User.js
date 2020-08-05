@@ -37,43 +37,37 @@ module.exports = db.sequelize.define(
             type: Sequelize.DATE,
             defaultValue: Sequelize.NOW
         },
-        // antecedents_personnels: {
-        //     type: Sequelize.STRING
-        // },
-        // antecedents_familiaux: {
-        //     type: Sequelize.STRING
-        // },
-        // motif_de_consultation: {
-        //     type: Sequelize.STRING
-        // },
+        antecedents_personnels: {
+            type: Sequelize.STRING
+        },
+        antecedents_familiaux: {
+            type: Sequelize.STRING
+        },
+        motif_de_consultation: {
+            type: Sequelize.STRING
+        },
         bilan: {
             type: Sequelize.STRING
         },
         diagnostic: {
             type: Sequelize.STRING
         },
-        // traitement_recu: {
-        //     type: Sequelize.STRING
-        // },
-        // ordonnance: {
-        //     type: Sequelize.STRING
-        // },
-        // evolution: {
-        //     type: Sequelize.STRING
-        // },
+        traitement_recu: {
+            type: Sequelize.STRING
+        },
+        ordonnance: {
+            type: Sequelize.STRING
+        },
+        evolution: {
+            type: Sequelize.STRING
+        },
         pro_rdv: {
             type: Sequelize.STRING
         },
-        // last_update: {
-        //     type: Sequelize.DATE,
-        //     defaultValue: Sequelize.NOW
-        // }
-        // rendez_vous: {
-        //     type: Sequelize.STRING
-        // },
-        // soins_particuliers: {
-        //     type: Sequelize.STRING
-        // }
+        last_update: {
+            type: Sequelize.DATE,
+            defaultValue: Sequelize.NOW
+        }
     },
     {
         timestamps: false
