@@ -62,7 +62,7 @@ users.get('/get-all', (req, res, next)=>{
 users.get('/get/:id', (req, res, next)=>{
   User.findOne({
     where: {
-      id: req.body.id
+      id: req.params.id
     }
   })
   .then(user => {
