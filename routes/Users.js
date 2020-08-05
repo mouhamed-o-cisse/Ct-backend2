@@ -59,25 +59,20 @@ users.get('/get-all', (req, res, next)=>{
     })     
 });
 
-users.get('/get/:id', (req, res, next)=>{
-  User.findOne({
-    where: {
-      id: req.params.id
-    }
-  })
-  .then(user => {
-      if (user) {
-        res.json(user)
-      } 
-      else{
-        res.json({ error: 'User do not exists' })
-      }
-    })
 
+users.get('/one/:id', (req, res) => {
+  const id = req.params.id;
+
+  User.findByPk(id)
+    .then(data => {
+      res.send(data);
+    })
     .catch(err => {
-      res.send('error: ' + err)
-    })     
-});
+      res.status(500).send({
+        message: "Error retrieving user with id=" + id
+      });
+    });
+}) 
 
 
 users.post('/register', (req, res) => {
