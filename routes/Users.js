@@ -40,7 +40,26 @@ users.get('/get-all', (req, res, next)=>{
 
 
  users.get('/get-one', (req, res, next)=>{
-   
+  User.findOne({
+    where: {
+      id: req.body.id
+    }
+  })
+  .then(user => {
+      if (user) {
+        res.json(user)
+      } 
+      else{
+        res.json({ error: 'User do not exists' })
+      }
+    })
+
+    .catch(err => {
+      res.send('error: ' + err)
+    })     
+});
+
+users.get('/get/:id', (req, res, next)=>{
   User.findOne({
     where: {
       id: req.body.id
@@ -182,25 +201,5 @@ users.get('/profile', (req, res) => {
       res.send('error: ' + err)
     })
 })
-
-// users.get('/oneprofile', (req, res) => {
-//   var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
-
-//   User.findOne({
-//     where: {
-//       id: decoded.id
-//     }
-//   })
-//     .then(user => {
-//       if (user) {
-//         res.json(user)
-//       } else { 
-//         res.send('User does not exist')
-//       }
-//     })
-//     .catch(err => {
-//       res.send('error: ' + err)
-//     })
-// })
 
 module.exports = users
