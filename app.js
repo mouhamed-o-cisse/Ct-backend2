@@ -12,7 +12,8 @@ console.log({env: process.env.CLEARDB_DATABASE_URL});
 
 app.use((req, res, next) => {
      
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', 'https://newctfrontend.herokuapp.com/',
+     'https://www.plateaumedicaltaslima.com');
 
     res.setHeader('Access-Control-Allow-Headers', 
     'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
