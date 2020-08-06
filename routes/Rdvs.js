@@ -12,7 +12,11 @@ process.env.SECRET_KEY = 'secret'
 
 router.get('/get-rdvs', (req, res, next)=>{
    
-    Rdv.findAll()
+    Rdv.findAll({
+      order: [
+        ['id', 'DESC'], // Sorts by COLUMN_NAME_EXAMPLE in descending order
+  ],
+    })
     .then(rdvs => {
         if (rdvs) {
           res.json(rdvs)
