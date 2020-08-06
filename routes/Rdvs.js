@@ -14,7 +14,7 @@ router.get('/get-rdvs', (req, res, next)=>{
    
     Rdv.findAll({
       order: [
-        ['id', 'DESC'], // Sorts by COLUMN_NAME_EXAMPLE in descending order
+        ['rdv_id', 'DESC'], // Sorts by COLUMN_NAME_EXAMPLE in descending order
   ],
     })
     .then(rdvs => {
