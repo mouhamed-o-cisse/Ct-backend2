@@ -1,5 +1,4 @@
 const Sequelize = require('sequelize');
-// const { } = require('sequelize');
 const db = {};
 
 const sequelize = new Sequelize(
@@ -11,10 +10,18 @@ const sequelize = new Sequelize(
         aquire: 30000,
         idle: 1000
     },
-    // "ssl": {
-    //     "rejectUnauthorized":false
-    // }
-   }
+   } 
+)
+
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+
+module.exports = db; 
+
+// const { } = require('sequelize');
+
+// ?debug=true&charset=BIG5_CHINESE_CI&timezone=-0700
+
 //     "randlogin2", "root", "passwordroot", { 
 //     host:"localhost",
 //     dialect: "mysql",
@@ -25,12 +32,3 @@ const sequelize = new Sequelize(
 //         idle: 1000
 //     }
 //   }
- 
-)
-
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
-
-module.exports = db; 
-
-// ?debug=true&charset=BIG5_CHINESE_CI&timezone=-0700

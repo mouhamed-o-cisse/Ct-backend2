@@ -67,6 +67,18 @@ module.exports = db.sequelize.define(
         last_update: {
             type: Sequelize.DATE,
             defaultValue: Sequelize.NOW
+        },
+        genre: {
+            type: Sequelize.STRING
+        },
+        date_de_naissance: {
+            type: Sequelize.STRING
+        },
+        adresse: {
+            type: Sequelize.STRING
+        },
+        provenance: {
+            type: Sequelize.STRING
         }
     },
     {

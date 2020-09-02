@@ -86,6 +86,10 @@ users.post('/register', (req, res) => {
     age: req.body.age,
     pdesease: req.body.pdesease,
     allergy: req.body.allergy,
+    genre: req.body.genre,
+    date_de_naissance: req.body.date_de_naissance,
+    adresse: req.body.adresse,
+    provenance: req.body.provenance,
     created: today
   }
 
