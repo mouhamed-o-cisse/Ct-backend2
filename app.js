@@ -6,6 +6,7 @@ const Users = require("./routes/Users");
 const Admin = require('./routes/Admin');
 const Rdvs = require('./routes/Rdvs')
 const db = require('./database/db');
+const Doctor = require('./routes/Doctor');
 
 
 console.log({env: process.env.CLEARDB_DATABASE_URL});
@@ -39,5 +40,6 @@ app.use("/admin", Admin)
 
 app.use("/rdvs", Rdvs)
 
+app.use("/doctors", Doctor)
 
 module.exports = app; 
