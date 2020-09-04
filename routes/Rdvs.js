@@ -27,6 +27,45 @@ router.get('/get-rdvs', (req, res, next)=>{
       })     
  });
 
+ ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//  router.get('/get-doctor-rdvs', (req, res, next)=>{
+   
+//   Rdv.findAll({
+//     where: {
+//       speciality : req.params.speciality
+//     }
+//   })
+//   .then(rdvs => {
+//       if (rdvs) {
+//         res.json(rdvs)
+//       } 
+//     })
+//     .catch(err => {
+//       res.send('error: ' + err)
+//     })      
+// });
+
+router.get('/doctor-rdvs/:speciality', (req, res) => {
+  const speciality = req.params.speciality;
+
+  Rdv.findAll({
+    where: {
+      speciality : speciality
+    }
+  })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving user with id=" + id
+      });
+    });
+}) 
+
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
  router.post('/new-rdv', (req, res) => {
     const today = new Date()
     const userData = {

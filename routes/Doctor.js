@@ -27,6 +27,25 @@ doctor.get('/get-all', (req, res, next)=>{
       })     
  });
 
+ //////////////////////////////////////////////////DOCTOR RDVS //////////////////////////////////////////////////
+
+//  doctor.get('/get-doctor-rdvs', (req, res, next)=>{
+   
+//   Doctor.findAll({
+//     where: {
+//       speciality : req.body.speciality
+//     }
+//   })
+//   .then(users => {
+//       if (users) {
+//         res.json(users)
+//       } 
+//     })
+//     .catch(err => {
+//       res.send('error: ' + err)
+//     })     
+// });
+
  ///////////////////////////////////////////////////REGISTER DOCTOR////////////////////////////////////////////////////
 
 doctor.post('/register', (req, res) => {
