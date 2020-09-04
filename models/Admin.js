@@ -15,6 +15,9 @@ module.exports = db.sequelize.define(
         password: {
             type: Sequelize.STRING
         },
+        clinic_name: {
+            type: Sequelize.STRING
+        },
     },
     {
         timestamps: false
