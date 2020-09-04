@@ -136,24 +136,24 @@ doctor.post('/login', (req, res) => {
 
 // PROFILE
 
-// doctor.get('/profile', (req, res) => {
-//   var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+doctor.get('/profile', (req, res) => {
+  var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
 
-//   User.findOne({
-//     where: {
-//       doctor_id: decoded.doctor_id
-//     }
-//   })
-//     .then(user => {
-//       if (user) {
-//         res.json(user)
-//       } else { 
-//         res.send('User does not exist')
-//       }
-//     })
-//     .catch(err => {
-//       res.send('error: ' + err)
-//     })
-// })
+  Doctor.findOne({
+    where: {
+      doctor_id: decoded.doctor_id
+    }
+  })
+    .then(user => {
+      if (user) {
+        res.json(user)
+      } else { 
+        res.send('User does not exist')
+      }
+    })
+    .catch(err => {
+      res.send('error: ' + err)
+    })
+})
 
 module.exports = doctor

@@ -187,7 +187,7 @@ users.get('/profile', (req, res) => {
   User.findOne({
     where: {
       id: decoded.id
-    }
+    } 
   })
     .then(user => {
       if (user) {
@@ -200,5 +200,5 @@ users.get('/profile', (req, res) => {
       res.send('error: ' + err)
     })
 })
-
+ 
 module.exports = users
