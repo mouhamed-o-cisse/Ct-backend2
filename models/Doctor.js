@@ -27,6 +27,21 @@ module.exports = db.sequelize.define(
         time_table: {
             type: Sequelize.STRING
         },
+        day1: {
+            type: Sequelize.STRING
+        },
+        day2: {
+            type: Sequelize.STRING
+        },
+        day3: {
+            type: Sequelize.STRING
+        },
+        day4: {
+            type: Sequelize.STRING
+        },
+        day5: {
+            type: Sequelize.STRING
+        },
         created: {
             type: Sequelize.DATE,
             defaultValue: Sequelize.NOW

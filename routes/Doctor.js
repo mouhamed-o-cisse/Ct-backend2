@@ -27,24 +27,22 @@ doctor.get('/get-all', (req, res, next)=>{
       })     
  });
 
- //////////////////////////////////////////////////DOCTOR RDVS //////////////////////////////////////////////////
+ //////////////////////////////////////////////////DOCTOR AVAILABILITY //////////////////////////////////////////////////
 
-//  doctor.get('/get-doctor-rdvs', (req, res, next)=>{
+ doctor.get('/get-d-availability', (req, res, next)=>{
    
-//   Doctor.findAll({
-//     where: {
-//       speciality : req.body.speciality
-//     }
-//   })
-//   .then(users => {
-//       if (users) {
-//         res.json(users)
-//       } 
-//     })
-//     .catch(err => {
-//       res.send('error: ' + err)
-//     })     
-// });
+  Doctor.findAll({
+    attributes: ['last_name', 'speciality', 'day1', 'day2', 'day3', 'day4', 'day5']
+  })
+  .then(users => {
+      if (users) {
+        res.json(users)
+      } 
+    })
+    .catch(err => {
+      res.send('error: ' + err)
+    })     
+});
 
  ///////////////////////////////////////////////////REGISTER DOCTOR////////////////////////////////////////////////////
 
@@ -56,7 +54,11 @@ doctor.post('/register', (req, res) => {
       username: req.body.username,
       password: req.body.password,
       speciality: req.body.speciality,
-      time_table: req.body.time_table,
+      day1: req.body.day1,
+      day2: req.body.day2,
+      day3: req.body.day3,
+      day4: req.body.day4,
+      day5: req.body.day5,
       created: today
     }
     Doctor.create(doctorData)
@@ -77,7 +79,7 @@ doctor.put('/update', (req, res)=>{
   const now = new Date()
   const doctorData = {
     username: req.body.username,
-    time_table: req.body.time_table,
+    day: req.body.day,
     last_update: now
   }
   const username = req.body.username;
@@ -105,7 +107,7 @@ doctor.put('/update', (req, res)=>{
 //     const now = new Date()
 //     const userData = {
 //       username: req.body.username,
-//       time_table: req.body.time_table,
+//       day: req.body.day,
 //       last_update: now
 //     }
 //     const username = req.body.username;
