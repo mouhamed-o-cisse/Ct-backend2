@@ -24,9 +24,6 @@ module.exports = db.sequelize.define(
         speciality: {
             type: Sequelize.STRING
         },
-        time_table: {
-            type: Sequelize.STRING
-        },
         day1: {
             type: Sequelize.STRING
         },
